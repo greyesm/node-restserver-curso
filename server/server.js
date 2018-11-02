@@ -1,6 +1,10 @@
 require('./config/config');
 
 const express = require('express');
+
+const mongoose = require('mongoose');
+
+
 const app = express();
 
 const bodyParser = require('body-parser');
@@ -10,31 +14,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+//traer definiciones del archivo usuario.js
+app.use(require('./rutas/usuario'));
 
-app.get('/usuario', (req, res) => {
+/* app.get('/usuario', (req, res) => {
     res.json('get usuario');
 });
+ */
 
-app.post('/usuario', (req, res) => {
+//conexion a la BD
 
-    let body = req.body;
-
-    res.json({
-        persona: body
-    });
-});
-
-app.put('/usuario/:id', (req, res) => {
-
-    let id = req.params.id;
-
-    res.json({
-        id: id
-    });
-});
-app.delete('/usuario', (req, res) => {
-
-    res.json('delete usuario');
+mongoose.connect(process.env.URLcafe, (err, res) => {
+    if (err) throw new err;
+    console.log('base de dato lista');
 });
 
 app.listen(process.env.PORT, () => {
