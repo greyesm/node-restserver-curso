@@ -14,6 +14,7 @@ process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
 process.env.SEMILLA = process.env.SEMILLA || 'aqui-va-el-validador_desarrollo'
 
 
+
 //entorno
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
@@ -30,3 +31,7 @@ if (process.env.NODE_ENV === 'dev') {
 
 //urlDB = 'mongodb://cafe-user:a123456@ds235807.mlab.com:35807/cafe';
 process.env.URLcafe = urlDB;
+
+//conectar con GOOGLE
+//=========variable de entorno para autenticar con cuentas google
+process.env.CLIENT_ID = process.env.CLIENT_ID || '462442262624-idssbcteag0uvdl0a4qtna58fg98654d.apps.googleusercontent.com';
