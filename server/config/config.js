@@ -3,6 +3,16 @@
 //definir puerto en que escucha el servicio
 process.env.PORT = process.env.PORT || 3000
 
+//=====fecha vencimineto para el token, usado en login.js======
+//60 segundos * 60 minutos * 24 horas * 30 dias
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+
+
+//====seed o validad de token para firma
+//esta variable se activa en el heroku para que pueda ser usada como 
+//variable de entorno con la opcin de o "||"
+process.env.SEMILLA = process.env.SEMILLA || 'aqui-va-el-validador_desarrollo'
+
 
 //entorno
 

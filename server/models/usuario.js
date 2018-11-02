@@ -44,6 +44,7 @@ let usuarioSchema = new Schema({
 });
 
 //eliminar la propiedad solo cuando se envia como un json
+//permite ocultar una propiedad
 usuarioSchema.methods.toJSON = function() {
     let user = this;
     let userObject = user.toObject();

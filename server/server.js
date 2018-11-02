@@ -14,8 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-//traer definiciones del archivo usuario.js
-app.use(require('./rutas/usuario'));
+//traer definiciones de los archivos a usar como servicio
+//app.use(require('./rutas/usuario'));
+app.use(require('./rutas/index'));
+
 
 /* app.get('/usuario', (req, res) => {
     res.json('get usuario');
