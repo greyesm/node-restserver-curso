@@ -26,6 +26,24 @@ let verificaToken = (req, res, next) => {
 
 };
 
+//verificar token de imagenes
+let verificaTokenImg = (req, res, next) => {
+
+    let token = req.query.token;
+
+    jwt.verify(token, process.env.SEMILLA, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({
+                ok: false,
+                err
+            });
+        }
+        req.usuario = decoded.usuario;
+
+        next();
+    });
+}
+
 
 //valida roles
 let verificaADMINrole = (req, res, next) => {
@@ -45,4 +63,4 @@ let verificaADMINrole = (req, res, next) => {
 
 };
 
-module.exports = { verificaToken, verificaADMINrole };
+module.exports = { verificaToken, verificaADMINrole, verificaTokenImg };
