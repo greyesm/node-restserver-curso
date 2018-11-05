@@ -6,6 +6,7 @@ process.env.PORT = process.env.PORT || 3000
 //=====fecha vencimineto para el token, usado en login.js======
 //60 segundos * 60 minutos * 24 horas * 30 dias
 process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+//process.env.CADUCIDAD_TOKEN = '48h';
 
 
 //====seed o validad de token para firma
